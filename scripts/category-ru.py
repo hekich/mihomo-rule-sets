@@ -91,7 +91,7 @@ def main():
             
     lst_path = current_dir.parent / "rules" / "category-ru.lst"
     with lst_path.open("w", encoding="utf-8", newline="\n") as f:
-        f.write("\n".join(ru_domains_filtered) + "\n")
+        f.write("\n".join(f"DOMAIN-SUFFIX,{d}" for d in ru_domains_filtered) + "\n")
         
     print(f"РУ доменов: {len(ru_domains_filtered)}")
     print("Готово! Финальный конфиг ->", output_path)
